@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
+import Greeter from './GreeterFunctional';
 
 function App() {
   return (
-    <main className="container">
+    <div className="container">
       <h1>Not Really Discover Banking Services</h1>
-    </main>
+      <Greeter companyName="Gristedes" />
+    </div>
   );
 }
 
