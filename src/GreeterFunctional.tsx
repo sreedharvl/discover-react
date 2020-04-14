@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import TextInput from './common/TextInput';
 
 interface GreeterProps {
   companyName: string;
@@ -24,16 +25,12 @@ function Greeter(props: GreeterProps) {
 
   return (
     <form>
-      <div className="form-group">
-        <label htmlFor="first-name">What is your first name?</label>
-        <input
-          type="text"
-          id="first-name"
-          className="form-control"
-          onChange={(event) => setFirstName(event.currentTarget.value)}
-          value={firstName}
-        />
-      </div>
+      <TextInput
+        label="Please enter your first name"
+        id="first-name"
+        updateField={setFirstName}
+        value={firstName}
+      />
       <div className="form-group">
         <label htmlFor="last-name">What is your last name?</label>
         <input
@@ -45,14 +42,16 @@ function Greeter(props: GreeterProps) {
         />
       </div>
       <button
-          onClick={handleClickArrow}
-          type="button"
-          className="btn btn-primary"
-        >
-          Say hi!
-        </button>
+        onClick={handleClickArrow}
+        type="button"
+        className="btn btn-primary"
+      >
+        Say hi!
+      </button>
       <div>
-        <p>Hello, {firstName} {lastName}</p>
+        <p>
+          Hello, {firstName} {lastName}
+        </p>
       </div>
     </form>
   );
