@@ -35,6 +35,7 @@ function Greeter(props: GreeterProps) {
         <label htmlFor="last-name">What is your last name?</label>
         <input
           type="text"
+          data-testid="last-name-field"
           id="last-name"
           className="form-control"
           onChange={(event) => setLastName(event.currentTarget.value)}
