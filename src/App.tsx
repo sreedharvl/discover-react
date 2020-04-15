@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-
-import Greeter from './GreeterFunctional';
-import { PageManagerRouted } from './demos/PageComponents';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { CategoriesManager, TransactionsManager, PeopleManager } from './TopicManagers';
+import PayeesManager from './payees/PayeesManager';
+import DemosManager from './demos/DemosManager';
 
 function App() {
   return (
@@ -13,15 +13,43 @@ function App() {
           <div className="col">
             <nav>
               <ul className="list-inline">
-                <li className="list-inline item">Demos</li>
-                <li className="list-inline item">Categories</li>
-                <li className="list-inline item">Payees</li>
-                <li className="list-inline item">People</li>
-                <li className="list-inline item">Transactions</li>
+                <li className="list-inline-item">
+                  <Link to="/demos">Demos</Link>
+                </li>
+                <li className="list-inline-item">
+                  <Link to="/categories">Categories</Link>
+                </li>
+                <li className="list-inline-item">
+                  <Link to="/payees">Payees</Link>
+                </li>
+                <li className="list-inline-item">
+                  <Link to="/people">People</Link>
+                </li>
+                <li className="list-inline-item">
+                  <Link to="/transactions">Transactions</Link>
+                </li>
               </ul>
             </nav>
           </div>
         </div>
+
+        <Switch>
+          <Route path="/demos">
+            <DemosManager />
+          </Route>
+          <Route path="/categories">
+            <CategoriesManager />
+          </Route>
+          <Route path="/payees">
+            <PayeesManager />
+          </Route>
+          <Route path="/people">
+            <PeopleManager />
+          </Route>
+          <Route path="/transactions">
+            <TransactionsManager />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
