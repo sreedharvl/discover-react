@@ -9,8 +9,19 @@ function App() {
     <Router>
       <div className="container">
         <h1>Not Really Discover Banking Services</h1>
-        {/* <Greeter companyName="Gristedes" /> */}
-        <PageManagerRouted />
+        <div className="row">
+          <div className="col">
+            <nav>
+              <ul className="list-inline">
+                <li className="list-inline item">Demos</li>
+                <li className="list-inline item">Categories</li>
+                <li className="list-inline item">Payees</li>
+                <li className="list-inline item">People</li>
+                <li className="list-inline item">Transactions</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </Router>
   );
