@@ -1,14 +1,18 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Greeter from './GreeterFunctional';
-import { PageManager } from './demos/PageComponents';
+import { PageManagerRouted } from './demos/PageComponents';
 
 function App() {
   return (
-    <div className="container">
-      <h1>Not Really Discover Banking Services</h1>
-      {/* <Greeter companyName="Gristedes" /> */}
-      <PageManager />
-    </div>
+    <Router>
+      <div className="container">
+        <h1>Not Really Discover Banking Services</h1>
+        {/* <Greeter companyName="Gristedes" /> */}
+        <PageManagerRouted />
+      </div>
+    </Router>
   );
 }
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Route, Switch, Link } from 'react-router-dom';
 
 function PageOne() {
   return (
@@ -16,6 +17,16 @@ function PageTwo() {
   );
 }
 
+function getPage(count: number) {
+  let page = <PageOne />;
+
+  if (count % 2 === 0) {
+    page = <PageTwo />;
+  }
+
+  return page;
+}
+
 function PageManager() {
   const [count, setCount] = useState(1);
 
@@ -23,12 +34,6 @@ function PageManager() {
     event.preventDefault();
     setCount(count + 1);
   };
-
-  let page = <PageOne />;
-
-  if (count % 2 === 0) {
-    page = <PageTwo />;
-  }
 
   return (
     <div className="row">
@@ -44,15 +49,39 @@ function PageManager() {
               Page Two
             </a>
           </li>
-          {
-            // count % 2 ? <PageOne/> : <PageTwo />
-          }
-
-          {page}
         </ul>
+        {count % 2 ? <PageOne /> : <PageTwo />}
+
+        {/* {getPage(count)} */}
       </div>
     </div>
   );
 }
 
-export { PageOne, PageTwo, PageManager };
+function PageManagerRouted() {
+  return (
+    <div className="row">
+      <div className="col">
+        <ul className="list-inline">
+          <li className="list-inline-item">
+            <Link to="/page-one">Page One</Link>
+          </li>
+          <li className="list-inline-item">
+            <Link to="/page-two">Page Two</Link>
+          </li>
+        </ul>
+
+        <Switch>
+          <Route path="/page-one">
+            <PageOne />
+          </Route>
+          <Route path="/page-two">
+            <PageTwo />
+          </Route>
+        </Switch>
+      </div>
+    </div>
+  );
+}
+
+export { PageOne, PageTwo, PageManager, PageManagerRouted };
