@@ -64,21 +64,21 @@ function PageManagerRouted() {
       <div className="col">
         <ul className="list-inline">
           <li className="list-inline-item">
-            <Link to="/page-one">Page One</Link>
+            <Link to="/demos/page-routing/page-one">Page One</Link>
           </li>
           <li className="list-inline-item">
-            <Link to="/page-two">Page Two</Link>
+            <Link to="/demos/page-routing/page-two">Page Two</Link>
           </li>
         </ul>
 
         <Switch>
-          <Route path="/" exact>
-            <Redirect to="/page-one" />
+          <Route path="/demos/page-routing" exact>
+            <Redirect to="/demos/page-routing/page-one" />
           </Route>
-          <Route path="/page-one">
+          <Route path="/demos/page-routing/page-one">
             <PageOne />
           </Route>
-          <Route path="/page-two">
+          <Route path="/demos/page-routing/page-two">
             <PageTwo />
           </Route>
         </Switch>
