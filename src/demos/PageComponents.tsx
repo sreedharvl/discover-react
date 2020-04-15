@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, Redirect } from 'react-router-dom';
 
 function PageOne() {
   return (
@@ -72,6 +72,9 @@ function PageManagerRouted() {
         </ul>
 
         <Switch>
+          <Route path="/" exact>
+            <Redirect to="/page-one" />
+          </Route>
           <Route path="/page-one">
             <PageOne />
           </Route>
