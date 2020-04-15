@@ -3,8 +3,9 @@ import React from 'react';
 interface TextInputProps {
   label: string;
   id: string;
-  updateField: (text: string) => void;
-  value: string;
+  updateField?: (text: string) => void;
+  value?: string;
+  // value: string | undefined;
 }
 
 // function TextInput(props: TextInputProps) {
@@ -18,7 +19,7 @@ function TextInput({ id, label, updateField, value }: TextInputProps) {
         type="text"
         id={id}
         className="form-control"
-        onChange={(event) => updateField(event.currentTarget.value)}
+        onChange={(event) => updateField && updateField(event.currentTarget.value)}
         value={value}
       />
     </div>
